@@ -45,6 +45,7 @@ python manage.py test
 
 # Developer Notes
 
+1. SECRET_KEY is hardcoded in settings for simplicity
 1. SWAPI helper (star_wars_people.sw_api.py:SWAPI) uses generator to load data in parts.
 1. Project test coverage is 100% - but probably it could be done better.
 1. I assumed that all characters would eventually need all planets, so I downloaded planets in first place. Those are stored in memory, but in case this wuould get huge, it could be replaced with Cache/Redis or Database.
