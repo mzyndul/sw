@@ -51,6 +51,7 @@ python manage.py test
 1. Actually this was the first time I used petl. Nice library.
 1. First page is not paginated, probably would be good to implement that if we would expect a lot of records.
 1. Filtering and "load more" works together.
+1. Setup CI on Github: https://github.com/mzyndul/sw/actions , Flake8 and tests
 
 ## Speed Notes / Improvements
 
