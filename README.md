@@ -16,6 +16,8 @@ For simplicity, it uses sqlite database.
 1. create new virtualenv and install requirements:
 
 ```shell
+python3 -m venv env
+source env/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -30,8 +32,16 @@ python manage.py migrate
 ```shell
 python manage.py runserver
 ```
+4. Make sure ./media folder has written access
+5. Open browser http://localhost:8000
 
-4. Open browser http://localhost:8000
+# Tests
+
+To run tests:
+
+```shell
+python manage.py test
+```
 
 # Developer Notes
 
