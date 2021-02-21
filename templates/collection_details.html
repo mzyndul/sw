@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>{{ object.file.name }}</h2>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <form>
+            <div class="btn-group" role="group" aria-label="Buttons">
+                {% for i in buttons %}
+                    <input name="{{ i }}" type="checkbox" class="btn-check" id="btn-check-{{ i }}" autocomplete="off"
+                           {% if i in aggregation_keys %}checked{% endif %}/>
+                    <label class="btn btn-outline-primary" for="btn-check-{{ i }}">{{ i }}</label>
+                {% endfor %}
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+                <button type="submit" value="Filter" class="btn btn-success btn-lg">Filter</button>
+            </div>
+        </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            {% for i in headers %}
+                <th scope="col">{{ i }}</th>{% endfor %}
+        </tr>
+        </thead>
+        <tbody>{{ data|safe }}</tbody>
+    </table>
+    {% if not offset_reached %}
+        <a href="{% url 'collection_details' object.id %}?offset={{ offset }}&{{ offset_extra_params }}"
+           class="btn btn-primary">Load 10 more</a>
+    {% endif %}
+{% endblock %}
